@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Counter : MonoBehaviour
 {
     public Text counterText;
+    public bool isGameOver = false;
 
     private int count = 0;
 
@@ -17,7 +18,11 @@ public class Counter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        count += 1;
-        counterText.text = "Count : " + count;
+        if (other.gameObject.CompareTag("Ball") && isGameOver == false)
+        {
+            count += 1;
+            counterText.text = "Count : " + count;
+            isGameOver = true;
+        }
     }
 }

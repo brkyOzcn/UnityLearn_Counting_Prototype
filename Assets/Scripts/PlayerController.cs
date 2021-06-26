@@ -5,24 +5,37 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed;
+    [SerializeField] float jumpForce;
     private float horizontalInput;
     private float verticalInput;
+    private Rigidbody playerRb;
+    private bool isOnGround;
+    private Counter gameStatus;
 
     void Start()
     {
-
+        playerRb = GetComponent<Rigidbody>();
+        gameStatus = GameObject.Find("Box").GetComponent<Counter>();
     }
 
-    
+
     void Update()
     {
-        CharacterMovement(speed);
-        
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (gameStatus.isGameOver == false)
         {
-            CharacterMovement(10.0f);
+            CharacterMovement(speed);
+
+            if (Input.GetKey(KeyCode.LeftShift) && isOnGround == true)
+            {
+                CharacterMovement(10.0f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) && isOnGround == true)
+            {
+                playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                isOnGround = false;
+            }
         }
-        
     }
 
     void CharacterMovement(float speed)
@@ -34,4 +47,11 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.back * verticalInput * speed * Time.deltaTime);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = true;
+        }
+    }
 }

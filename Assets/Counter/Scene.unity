@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterText: {fileID: 598753586}
+  isGameOver: 0
 --- !u!65 &145979414
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -347,6 +348,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &280311115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4503879318721372306, guid: 69c63b71d77561b4ba88b8c0282ed746, type: 3}
+  m_PrefabInstance: {fileID: 4503879318445266393}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &280311121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280311115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1b09d7ca30b2b4bbc14f10b427ef10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &598753584
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +458,7 @@ GameObject:
   - component: {fileID: 658115678}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -899,7 +917,7 @@ Transform:
   m_GameObject: {fileID: 1184066553}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 27.3, y: 6, z: 3.6}
-  m_LocalScale: {x: 1.1499127, y: 3.2419379, z: 1.5304518}
+  m_LocalScale: {x: 1.7235928, y: 3.3661041, z: 1.841889}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -933,6 +951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  jumpForce: 10
 --- !u!1 &1357351969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,7 +1336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4503879318721372297, guid: 69c63b71d77561b4ba88b8c0282ed746, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.6
+      value: 16.47
       objectReference: {fileID: 0}
     - target: {fileID: 4503879318721372297, guid: 69c63b71d77561b4ba88b8c0282ed746, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1358,6 +1377,10 @@ PrefabInstance:
     - target: {fileID: 4503879318721372306, guid: 69c63b71d77561b4ba88b8c0282ed746, type: 3}
       propertyPath: m_Name
       value: Sphere
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503879318721372306, guid: 69c63b71d77561b4ba88b8c0282ed746, type: 3}
+      propertyPath: m_TagString
+      value: Ball
       objectReference: {fileID: 0}
     - target: {fileID: 4503879318721372308, guid: 69c63b71d77561b4ba88b8c0282ed746, type: 3}
       propertyPath: m_Enabled
